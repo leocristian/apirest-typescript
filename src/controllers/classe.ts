@@ -37,8 +37,7 @@ class ClasseController {
 
         const classesFormated = await Promise.all(allClasses.map(async item => {
             let lastCommentClass = await Comment.findOne({ id_class: item.id })
-            console.log(lastCommentClass)
-
+  
             const newData = {
                 classe: item,
                 last_comment: lastCommentClass == null ? "" : lastCommentClass.comment,
@@ -46,8 +45,7 @@ class ClasseController {
             }
             return newData
         }))
-        console.log(classesFormated)
-
+  
         if (classesFormated.length == 0) {
             return res.status(404).send("Classes not found!")
         } else {
