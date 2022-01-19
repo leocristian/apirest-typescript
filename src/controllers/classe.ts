@@ -35,12 +35,25 @@ class ClasseController {
         
         const allClasses = await Classe.find().limit(limit).skip(startIndex).exec()
 
-        if (allClasses.length == 0) {
+        const classesFormated = await Promise.all(allClasses.map(async item => {
+            let lastCommentClass = await Comment.findOne({ id_class: item.id })
+            console.log(lastCommentClass)
+
+            const newData = {
+                classe: item,
+                last_comment: lastCommentClass == null ? "" : lastCommentClass.comment,
+                date_comment_created: lastCommentClass == null ? "" : lastCommentClass.date_created
+            }
+            return newData
+        }))
+        console.log(classesFormated)
+
+        if (classesFormated.length == 0) {
             return res.status(404).send("Classes not found!")
         } else {
 
             // const classesPaginated = allClasses.slice(startIndex, endIndex)
-            return res.status(200).send(allClasses)
+            return res.status(200).send(classesFormated)
         }
     }
     async getById(req: Request, res: Response) {
