@@ -44,13 +44,13 @@ Esta API foi desenvolvida com a finalidade de concluir o desafio proposto pelo F
 
 | Requisição | Rota            | Corpo                        | Parâmetro                    | Resposta | Descrição                                      |
 | ---------- | --------------- | ---------------------------- | ---------------------------- | -------- | ---------------------------------------------- |
-| POST       | `/api/signup` | name, email, password      | <div align="center">❌</div> | `object` | Rota de criação de usuário                     |
+| POST       | `/api/signup` | name, email, password      | <div align="center">❌</div> | 200 | Rota de criação de usuário                     |
 | POST       | `/api/login`     | email, password               | <div align="center">❌</div> | `object` | Rota de login e autenticação do usuário                       |
-| POST       | `/api/classes` | classe object                        | <div align="center">❌</div> | `object`  | Rota de criação de aulas do usuário logado   |
+| POST       | `/api/classes` | classe object                        | <div align="center">❌</div> | 200  | Rota de criação de aulas do usuário logado   |
 | GET        | `/api/classes`        | <div align="center">❌</div> | <div align="center">❌</div> | `array`  | Rota de listagem de aulas do usuário logado |
 | GET        | `/api/classes/`  |  <div align="center">❌</div> | `:id` | `array` | Rota de detalhes de uma classe  |
 | DELETE     | `/api/classes` | <div align="center">❌</div> | `:id`                      | 200 | Rota de remoção de uma classe e seus respectivos comentários     |
-| PUT      | `/api/classes` | Objeto do tipo classe | `:id` | `object` | Rota para alteração de um atributo da aula |
+| PUT      | `/api/classes` | Objeto do tipo classe | `:id` | 200 | Rota para alteração de um atributo da aula |
 | GET | `/api/classes/:id_class/comments` | <div align="center">❌</div> | `:id_class`  |`array` | Rota de listagem de comentários de uma aula |
 | POST | `/api/classes/:id_class/comments` | Objeto do tipo comment | `:id_class` | <div align="center">❌</div> | Rota de criação de um comentário novo comentário |
  DELETE | `/api/classes/:id_class/comment/:id` | <div align="center">❌</div> |  `:id_class` e `: id` | 200 | Rota de remoção de um comentário de uma aula |
