@@ -1,93 +1,56 @@
-# tindin-teste-pratico
+<h3 align="center">Tindin backend API</h3>
+<p align="center">
+</p>
+<br>
 
-Teste prático para o processo seletivo da tindin
+## Informações Pessoais
+Email principal: leonardosclopes@gmail.com
+Email secundário: leonardocristian@ufpi.edu.br
+Telefone: +55 (99) 9 8234-9099
 
-## Getting started
+### Minhas redes sociais
 
-To make it easy for you to get started with GitLab, here's a list of recommended next steps.
+[![Linkedin Badge](https://img.shields.io/badge/-LeonardoCristian-blue?style=for-the-badge&logo=Linkedin&logoColor=white&link=https://www.linkedin.com/in/leonardo-cristian/)](https://www.linkedin.com/in/leonardo-cristian/) 
 
-Already a pro? Just edit this README.md and make it your own. Want to make it easy? [Use the template at the bottom](#editing-this-readme)!
+[![Gitlab Badge]( https://img.shields.io/badge/-leonardosclopes-330F63?style=for-the-badge&logo=gitlab&logoColor=white&link=https://gitlab.com/leonardosclopes)](https://gitlab.com/leonardosclopes)
 
-## Add your files
+[![Instagram Badge](https://img.shields.io/badge/-leocristian-E4405F?style=for-the-badge&logo=instagram&logoColor=white&link=https://www.instagram.com/leonardocr.a/?hl=en/)](https://www.instagram.com/leonardocr.a/?hl=en) 
 
-- [ ] [Create](https://gitlab.com/-/experiment/new_project_readme_content:76b0ef52223ebf6138ddb4d9efeaa9d0?https://docs.gitlab.com/ee/user/project/repository/web_editor.html#create-a-file) or [upload](https://gitlab.com/-/experiment/new_project_readme_content:76b0ef52223ebf6138ddb4d9efeaa9d0?https://docs.gitlab.com/ee/user/project/repository/web_editor.html#upload-a-file) files
-- [ ] [Add files using the command line](https://gitlab.com/-/experiment/new_project_readme_content:76b0ef52223ebf6138ddb4d9efeaa9d0?https://docs.gitlab.com/ee/gitlab-basics/add-file.html#add-a-file-using-the-command-line) or push an existing Git repository with the following command:
+## Backend API
 
-```
-cd existing_repo
-git remote add origin https://gitlab.com/leonardosclopes/tindin-teste-pratico.git
-git branch -M main
-git push -uf origin main
-```
+Esta API foi desenvolvida com a finalidade de concluir o desafio proposto pelo Fábio da empresa [Tindin | Educação Financeira](https://www.tindin.com.br/). O desafio proposto era de desenvolver uma API com autenticação de uário para listagem, cadastro, edição e remoção de aulas, além de cadastro e listagem de comentários para cada aula. Para mais informações acesse o link da documentação do teste prático clicando [aqui](https://docs.google.com/document/d/1tFQiqQWtgVVOkMN4DQeQDKGogTEXTyio/edit?usp=sharing&ouid=103561000911635344377&rtpof=true&sd=true)
 
-## Integrate with your tools
+## Tecnologias utilizadas
 
-- [ ] [Set up project integrations](https://gitlab.com/-/experiment/new_project_readme_content:76b0ef52223ebf6138ddb4d9efeaa9d0?https://gitlab.com/leonardosclopes/tindin-teste-pratico/-/settings/integrations)
+- [NodeJS](https://nodejs.org/en/) na versão 16.13.1
+- [TypeScript](https://www.typescriptlang.org/) na versão 4.5.4
+- [ExpressJS](https://expressjs.com/) na versão 4.17.2
+- [JsonWebToken](https://jwt.io/) na versão 8.5.1
+- [MongoDB](https://www.mongodb.com/) na versão 4.3.1
 
-## Collaborate with your team
+## Começo rápido
 
-- [ ] [Invite team members and collaborators](https://gitlab.com/-/experiment/new_project_readme_content:76b0ef52223ebf6138ddb4d9efeaa9d0?https://docs.gitlab.com/ee/user/project/members/)
-- [ ] [Create a new merge request](https://gitlab.com/-/experiment/new_project_readme_content:76b0ef52223ebf6138ddb4d9efeaa9d0?https://docs.gitlab.com/ee/user/project/merge_requests/creating_merge_requests.html)
-- [ ] [Automatically close issues from merge requests](https://gitlab.com/-/experiment/new_project_readme_content:76b0ef52223ebf6138ddb4d9efeaa9d0?https://docs.gitlab.com/ee/user/project/issues/managing_issues.html#closing-issues-automatically)
-- [ ] [Enable merge request approvals](https://gitlab.com/-/experiment/new_project_readme_content:76b0ef52223ebf6138ddb4d9efeaa9d0?https://docs.gitlab.com/ee/user/project/merge_requests/approvals/)
-- [ ] [Automatically merge when pipeline succeeds](https://gitlab.com/-/experiment/new_project_readme_content:76b0ef52223ebf6138ddb4d9efeaa9d0?https://docs.gitlab.com/ee/user/project/merge_requests/merge_when_pipeline_succeeds.html)
+- [Baixe e extraia este repositório](https://gitlab.com/leonardosclopes/tindin-teste-pratico.git)
 
-## Test and Deploy
+- Primeiramente baixe a ferramenta [MongoDB compass](https://www.mongodb.com/products/compass) (comunity edition)
+- Execute a ferramenta, clique em "connect" e aguarde a inicialização do mongoDB
+- Em seguida, acesse a pasta do projeto e execute:  `npm install`
+- Aguarde todas as dependências serem instaladas e então execute: `npm run dev`
+- Pronto, o servidor foi incializado na porta 3000
 
-Use the built-in continuous integration in GitLab.
+ Obs: Importe o arquivo `tindin-endpoints.postman_collection.json` em alguma ferramenta para exeução de requisições Http de sua preferência ([insomnia](https://insomnia.rest/) ou [postman]((https://www.postman.com/))
 
-- [ ] [Get started with GitLab CI/CD](https://gitlab.com/-/experiment/new_project_readme_content:76b0ef52223ebf6138ddb4d9efeaa9d0?https://docs.gitlab.com/ee/ci/quick_start/index.html)
-- [ ] [Analyze your code for known vulnerabilities with Static Application Security Testing(SAST)](https://gitlab.com/-/experiment/new_project_readme_content:76b0ef52223ebf6138ddb4d9efeaa9d0?https://docs.gitlab.com/ee/user/application_security/sast/)
-- [ ] [Deploy to Kubernetes, Amazon EC2, or Amazon ECS using Auto Deploy](https://gitlab.com/-/experiment/new_project_readme_content:76b0ef52223ebf6138ddb4d9efeaa9d0?https://docs.gitlab.com/ee/topics/autodevops/requirements.html)
-- [ ] [Use pull-based deployments for improved Kubernetes management](https://gitlab.com/-/experiment/new_project_readme_content:76b0ef52223ebf6138ddb4d9efeaa9d0?https://docs.gitlab.com/ee/user/clusters/agent/)
-- [ ] [Set up protected environments](https://gitlab.com/-/experiment/new_project_readme_content:76b0ef52223ebf6138ddb4d9efeaa9d0?https://docs.gitlab.com/ee/ci/environments/protected_environments.html)
+## Rotas da API
 
-***
-
-# Editing this README
-
-When you're ready to make this README your own, just edit this file and use the handy template below (or feel free to structure it however you want - this is just a starting point!).  Thank you to [makeareadme.com](https://www.makeareadme.com) for this template.
-
-## Suggestions for a good README
-Every project is different, so consider which of these sections apply to yours. The sections used in the template are suggestions for most open source projects. Also keep in mind that while a README can be too long and detailed, too long is better than too short. If you think your README is too long, consider utilizing another form of documentation rather than cutting out information.
-
-## Name
-Choose a self-explaining name for your project.
-
-## Description
-Let people know what your project can do specifically. Provide context and add a link to any reference visitors might be unfamiliar with. A list of Features or a Background subsection can also be added here. If there are alternatives to your project, this is a good place to list differentiating factors.
-
-## Badges
-On some READMEs, you may see small images that convey metadata, such as whether or not all the tests are passing for the project. You can use Shields to add some to your README. Many services also have instructions for adding a badge.
-
-## Visuals
-Depending on what you are making, it can be a good idea to include screenshots or even a video (you'll frequently see GIFs rather than actual videos). Tools like ttygif can help, but check out Asciinema for a more sophisticated method.
-
-## Installation
-Within a particular ecosystem, there may be a common way of installing things, such as using Yarn, NuGet, or Homebrew. However, consider the possibility that whoever is reading your README is a novice and would like more guidance. Listing specific steps helps remove ambiguity and gets people to using your project as quickly as possible. If it only runs in a specific context like a particular programming language version or operating system or has dependencies that have to be installed manually, also add a Requirements subsection.
-
-## Usage
-Use examples liberally, and show the expected output if you can. It's helpful to have inline the smallest example of usage that you can demonstrate, while providing links to more sophisticated examples if they are too long to reasonably include in the README.
-
-## Support
-Tell people where they can go to for help. It can be any combination of an issue tracker, a chat room, an email address, etc.
-
-## Roadmap
-If you have ideas for releases in the future, it is a good idea to list them in the README.
-
-## Contributing
-State if you are open to contributions and what your requirements are for accepting them.
-
-For people who want to make changes to your project, it's helpful to have some documentation on how to get started. Perhaps there is a script that they should run or some environment variables that they need to set. Make these steps explicit. These instructions could also be useful to your future self.
-
-You can also document commands to lint the code or run tests. These steps help to ensure high code quality and reduce the likelihood that the changes inadvertently break something. Having instructions for running tests is especially helpful if it requires external setup, such as starting a Selenium server for testing in a browser.
-
-## Authors and acknowledgment
-Show your appreciation to those who have contributed to the project.
-
-## License
-For open source projects, say how it is licensed.
-
-## Project status
-If you have run out of energy or time for your project, put a note at the top of the README saying that development has slowed down or stopped completely. Someone may choose to fork your project or volunteer to step in as a maintainer or owner, allowing your project to keep going. You can also make an explicit request for maintainers.
-
+| Requisição | Rota            | Corpo                        | Parâmetro                    | Resposta | Descrição                                      |
+| ---------- | --------------- | ---------------------------- | ---------------------------- | -------- | ---------------------------------------------- |
+| POST       | `/api/signup` | name, email, password      | <div align="center">❌</div> | `object` | Rota de criação de usuário                     |
+| POST       | `/api/login`     | email, password               | <div align="center">❌</div> | `object` | Rota de login e autenticação do usuário                       |
+| POST       | `/api/classes` | classe object                        | <div align="center">❌</div> | `object`  | Rota de criação de aulas do usuário logado   |
+| GET        | `/api/classes`        | <div align="center">❌</div> | <div align="center">❌</div> | `array`  | Rota de listagem de aulas do usuário logado |
+| GET        | `/api/classes/`  |  <div align="center">❌</div> | `:id` | `array` | Rota de detalhes de uma classe  |
+| DELETE     | `/api/classes` | <div align="center">❌</div> | `:id`                      | 200 | Rota de remoção de uma classe e seus respectivos comentários     |
+| PUT      | `/api/classes` | Objeto do tipo classe | `:id` | `object` | Rota para alteração de um atributo da aula |
+| GET | `/api/classes/:id_class/comments` | <div align="center">❌</div> | `:id_class`  |`array` | Rota de listagem de comentários de uma aula |
+| POST | `/api/classes/:id_class/comments` | Objeto do tipo comment | `:id_class` | <div align="center">❌</div> | Rota de criação de um comentário novo comentário |
+ DELETE | `/api/classes/:id_class/comment/:id` | <div align="center">❌</div> |  `:id_class` e `: id` | 200 | Rota de remoção de um comentário de uma aula |
