@@ -50,7 +50,7 @@ Para Hospedar a aplicação e colocá-la em produção, poderia ser utilizado o 
 - Aguarde todas as dependências serem instaladas e então execute: `npm run dev`
 - Pronto, o servidor foi incializado na porta 3000
 
- Obs: Importe o arquivo `tindin-endpoints.postman_collection.json` em alguma ferramenta para exeução de requisições Http de sua preferência ([insomnia](https://insomnia.rest/) ou [postman]((https://www.postman.com/)))
+ Obs: Importe o arquivo `tindin-endpoints.postman_collection.json` em alguma ferramenta para exeução de requisições Http de sua preferência ([insomnia](https://insomnia.rest/) ou [postman](https://www.postman.com/))
 ### Execução dos testes
 - Para rodar os testes, execute o comando: `npm run test`
 
