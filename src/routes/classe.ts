@@ -8,5 +8,6 @@ router.get("/classes", classeController.getAll)
 router.get("/classes/:id", classeController.getById)
 router.post("/classes", classeController.create)
 router.delete("/classes/:id", classeController.deleteById)
+router.put("/classes/:id", classeController.updateById)
 
 export = router

@@ -1,4 +1,5 @@
 import express, { Application, Request, Response } from "express";
+import database from "./services/Database"
 
 import classeRouter from "./routes/classe";
 import userRouter from "./routes/user";
@@ -9,6 +10,8 @@ const PORT: number = 3000
 
 server.use(express.json())
 server.use(express.urlencoded({ extended: true }));
+
+database.connect()
 
 server.use("/api", userRouter)
 server.use("/api", classeRouter)

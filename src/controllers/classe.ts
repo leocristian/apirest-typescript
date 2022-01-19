@@ -1,15 +1,24 @@
 import { Request, Response } from "express";
 import { ObjectId } from "mongodb";
-import classe from "../models/classe";
-import database from "../services/database";
+import Classe from "../schemas/Classe";
 
-const commentCollection = database.collection("comments")
+import Comment from "../schemas/Comment";
 
 class ClasseController {
 
     async create(req: Request, res: Response) {
         
-        const result = classe.insert(req.body)
+        const newClasse = {
+            name: req.body.name,
+            description: req.body.description,
+            video: req.body.video,
+            date_init: req.body.date_init,
+            date_end: req.body.date_end,
+            total_comments: 0
+        }
+
+        const result = Classe.create(newClasse)
+        
         if(!result) {
             return res.status(500).send("Server Error!")
 
@@ -19,7 +28,7 @@ class ClasseController {
     }
     async getAll(req: Request, res: Response) {
 
-        const allClasses = await classe.findAll()
+        const allClasses = await Classe.find()
 
         if (allClasses.length == 0) {
             return res.status(404).send("Classes not found!")
@@ -28,33 +37,42 @@ class ClasseController {
         }
     }
     async getById(req: Request, res: Response) {
-        const id = req.params.id;
-        const search_id = new ObjectId(id);
+        const id = new ObjectId(req.params.id);
 
-        const result = await classe.find(search_id)
+        const result = await Classe.findOne(id)
 
         if(!result) {
             return res.status(404).send("Classe not found!")
         } else {
-            // const comments = await commentCollection.find({ id_class: search_id })
-
-            return res.status(200).send(result)
+            const classeComments = await Comment.find({ id_classs: id })
+            const comments = classeComments.slice(0, 3)
+            
+            return res.status(200).send({
+                name: result.name,
+                description: result.description,
+                total_comments: result.total_comments,
+                comments: comments
+            })
         }
     }
     async deleteById(req: Request, res: Response) {
-        const id = req.params.id
-        const search_id = new ObjectId(id)
+        const id = new ObjectId(req.params.id)
 
-        const search_class = await classe.find(search_id)
-
-        if(!search_class){
+        const search_class = await Classe.find({ "_id": id })
+        
+        console.log(search_class)
+        if(!search_class[0]){
             return res.status(404).send("Classe not Found!")
         } else {
-            console.log("existem comentários nesta aula!! deletando")
-            await commentCollection.deleteMany({ id_class: search_id })
+            const allComments = Comment.find({ id_class: id})
 
-            console.log("comentários deletados, deletando aula")
-            const result = await classe.delete(search_id)
+            if((await allComments).length > 0) {
+                console.log("existem comentários nesta aula!! deletando")
+                await Comment.deleteMany({ id_class: id })
+                console.log("comentários deletados")
+            }
+
+            const result = await Classe.deleteOne({ "_id": id })
             
             if(result) {
                 return res.status(200).send("Classe deleted sucesfuly!")
@@ -64,6 +82,16 @@ class ClasseController {
             }
         }
     }
+    async updateById(req: Request, res: Response) {
+        const id_class = new ObjectId(req.params.id)
+
+        if(await Classe.findOne({id: id_class})) {
+            await Classe.updateOne({ id: id_class }, req.body)
+            return res.status(200).send("Classe Updated!")
+        } else {
+            return res.status(404).send("Error classe not found")
+        }            
+    }
 }
 
-export = new ClasseController()
+export default new ClasseController()

@@ -1,37 +1,41 @@
-import database from "../services/database";
+import database from "../services/Database";
 import { Request, Response } from "express"
-import comment from "../models/comment";
+import Comment from "../schemas/Comment";
 import { ObjectId } from "mongodb";
-
-const commentCollection = database.collection("comments");
-const classeCollection = database.collection("classes")
+import Classe from "../schemas/Classe";
 
 class CommentController {
 
     async getAll(req: Request, res: Response) {
-        const { id_class } = req.params
-        const id_class_search = new ObjectId(id_class)
+        const id_class = new Object(req.params.id_class)
 
-        const allComments = await comment.findAllFromClassId(id_class_search)
+        const allComments = await Comment.find({ id_class: id_class })
 
-        if(!allComments) {
+        if(!allComments[0]) {
             return res.status(404).send("Comments not found!")
         } else {
             return res.status(200).send(allComments)
         }
     }
     async create(req: Request, res: Response) {
-        const id_class = req.params.id_class
-        const { comment, date_created } = req.body
+        const id_class = new ObjectId(req.params.id_class)
 
-        const class_search = new ObjectId(id_class);
+        const classeFinded = await Classe.findOne({"_id": id_class})
 
-        const classe = await classeCollection.findOne({ "_id": class_search})
-        if(!classe) {
+        if(!classeFinded) {
             return res.status(404).send("Classe not found! no comments")
         } else {
+            let totalComments = classeFinded.total_comments
+
+            const newComment = {
+                id_class: id_class,
+                comment: req.body.comment,
+                date_created: Date.now()
+            }
+            const result = await Comment.create(newComment)
             
-            const result = await comment.insert(req.body)
+            await Classe.updateOne({ id: id_class }, {total_comments: totalComments + 1})
+            
             if(!result) {
                 return res.send(500).send("Error at create comment!")
             } else {
@@ -39,14 +43,36 @@ class CommentController {
             }
         }
     }
-    async deleteAllByClassId(class_id: ObjectId) {
+    async deleteAllByClassId(req: Request, res: Response) {
+        const id_class = req.params.id
+        const class_search = new ObjectId(id_class);
 
-        commentCollection.deleteMany({ id_class: class_id }).then(() => {
-            return true
-        }).catch((error) => {
-            return error
-        })
+        const result = await Comment.deleteMany({ id_class: class_search})
+
+        if(result) { 
+            return res.status(200).send("Comments sucesfully deleted!")
+        } else {
+            return res.status(500).send("Error on delete comments!")
+        }
+    }
+    async deleteById(req: Request, res: Response) {
+        const id = new ObjectId(req.params.id)
+        const id_class = new ObjectId(req.params.id_class)
+
+        console.log(id)
+        if(await Comment.findOne({ "_id": id})) {
+            const classComment = await Classe.findOne({ "_id": id_class })
+
+            const classTotalComments = classComment.total_comments
+
+            await Comment.deleteOne({ "_id": id })
+            await Classe.updateOne({"_id": id_class}, {total_comments: classTotalComments - 1})
+
+            return res.status(200).send("Comment sucesfully deleted")
+        } else {
+            return res.status(404).send("Comment not found")
+        }
     }
 }
 
-export = new CommentController();
+export default new CommentController();
