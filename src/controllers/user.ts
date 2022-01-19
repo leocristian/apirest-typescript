@@ -2,22 +2,24 @@ import { Request, Response } from "express"
 import { ObjectId } from "mongodb";
 import User from "../schemas/User";
 import bcrypt from "bcrypt"
+import jwt from "jsonwebtoken"
 
 class UserController {
 
-    async login(req: Request, res: Response) {
-        console.log("entrou");
+    async authenticate(req: Request, res: Response) {
+        const { email, password } = req.body
         
-        const user = await User.findOne({ name: req.body.name})
-        console.log(user)
+        const userSignin = await User.findOne({ email: email })
 
-        const comparison = await bcrypt.compareSync(req.body.password, user.password)
-
-        if(!comparison) {
-            return res.status(404).send("User not found!")
-        } else {
-            return res.status(200).send("User found!")
+        if(!userSignin) {
+            return res.status(404).send("User not found")
         }
+
+        await delete userSignin.password
+
+        const token = await jwt.sign({ id: userSignin.id }, "secret", { expiresIn: "1d" })
+
+        return res.status(200).json({ userSignin, token })
     }
     async signup(req: Request, res: Response) {
 
