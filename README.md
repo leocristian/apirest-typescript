@@ -28,6 +28,18 @@ Esta API foi desenvolvida com a finalidade de concluir o desafio proposto pelo F
 - [JsonWebToken](https://jwt.io/) na versão 8.5.1
 - [MongoDB](https://www.mongodb.com/) na versão 4.3.1
 
+## Motivações
+    Neste projeto foram utilizados alguns frameworks para desenvolvimento Web. Dentre eles, o principal foi o micro framework [ExpressJS](https://expressjs.com/) para criação e confiugurações do servidor. Sendo esta uma ferramenta bastante proveitosa, por conter métodos e atributos bastante intuitivos e de fácil utilização. Permitindo uma maior flexibilidade no desenvolvimento.
+
+    Para criação dos esquemas do banco de dados bem e seus métodos de CRUD, foi utilizado a ferramenta [mongoose](https://mongoosejs.com/). Sendo esta uma biblioteca para modelagens de dados do mongodb. Isso facilita o controle dos dados que são inseridos no banco de dados.
+
+    Aĺem disso, foi utilizado o pacote [bcrypt](https://www.npmjs.com/package/bcrypt) do npm. Sendo esta uma ferramenta para geração de hashs. Foi utilizado para encriptar a senha fornecida pelo usuário. Não permitindo que ela seja vista para qualquer pessoa que visualizar a base de dados.
+
+    Para autenticação de usuário foi utilizado o pacote [jsonwebtoken](https://www.npmjs.com/package/jsonwebtoken). Que realiza a autenticação JWT de forma rápida. 
+
+## Hospedagem
+    Para Hospedar a aplicação e colocá-la em produção, poderia ser utilizado o [Heroku](https://www.heroku.com/). Sendo esta uma plataforma de computação em nuvem. Podendo ser configurado via terminal. Também poderia utilizar a plataforma [AWS](https://aws.amazon.com/) e alguns dos seus serviços de nuvem, como o DynamoDB para armazenamento de dados. Esta opção seria interessante para fácil gerenciamento de banco de dados, escalabilidade e alta performance.
+
 ## Começo rápido
 
 - [Baixe e extraia este repositório](https://gitlab.com/leonardosclopes/tindin-teste-pratico.git)
