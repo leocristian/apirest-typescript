@@ -11,6 +11,7 @@ class UserController {
         if(!user) {
             return res.status(404).send("User not found!")
         } else {
+
             return res.status(200).send("User found!")
         }
     }
