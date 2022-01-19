@@ -27,24 +27,31 @@ class ClasseController {
         }
     }
     async getAll(req: Request, res: Response) {
-
-        const allClasses = await Classe.find()
+        const page = Number(req.query.page)
+        
+        const limit = 50
+        
+        const startIndex = (page - 1) * limit
+        
+        const allClasses = await Classe.find().limit(limit).skip(startIndex).exec()
 
         if (allClasses.length == 0) {
             return res.status(404).send("Classes not found!")
         } else {
+
+            // const classesPaginated = allClasses.slice(startIndex, endIndex)
             return res.status(200).send(allClasses)
         }
     }
     async getById(req: Request, res: Response) {
         const id = new ObjectId(req.params.id);
 
-        const result = await Classe.findOne(id)
+        const result = await Classe.findOne({ "_id": id })
 
         if(!result) {
             return res.status(404).send("Classe not found!")
         } else {
-            const classeComments = await Comment.find({ id_classs: id })
+            const classeComments = await Comment.find({ id_class: id })
             const comments = classeComments.slice(0, 3)
             
             return res.status(200).send({
