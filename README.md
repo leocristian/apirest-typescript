@@ -5,7 +5,9 @@
 
 ## Informações Pessoais
 Email principal: leonardosclopes@gmail.com
+
 Email secundário: leonardocristian@ufpi.edu.br
+
 Telefone: +55 (99) 9 8234-9099
 
 ### Minhas redes sociais
