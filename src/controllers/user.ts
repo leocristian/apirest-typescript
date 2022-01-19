@@ -3,7 +3,6 @@ import { ObjectId } from "mongodb";
 import User from "../schemas/User";
 import bcrypt from "bcrypt"
 
-
 class UserController {
 
     async login(req: Request, res: Response) {
@@ -22,10 +21,13 @@ class UserController {
     }
     async signup(req: Request, res: Response) {
 
-        const passwordReq = req.body.password
+        const passwordReq = req.body.name
 
+        if(!req.body.name || !req.body.email || !req.body.password) {
+            return res.status(500).send("Fill in all fields!")
+        }
         const saltRouds = 10
-        const generatedSalt = await bcrypt.genSaltSync(saltRouds)
+        const generatedSalt = bcrypt.genSaltSync(saltRouds)
         
         const hash = bcrypt.hashSync(passwordReq, generatedSalt)
 

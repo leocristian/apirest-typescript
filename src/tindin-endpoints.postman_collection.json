@@ -1,0 +1,344 @@
+{
+	"info": {
+		"_postman_id": "cd90b141-782e-4196-88c8-3875b5043696",
+		"name": "tindin-endpoints",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "classe",
+			"item": [
+				{
+					"name": "getAll",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjYxZTczYzVhNTE1NDRhNWQ3YjJmNzk1YyIsImlhdCI6MTY0MjU1NTcyNCwiZXhwIjoxNjQyNjQyMTI0fQ.t_-Mx-zOwMusCNkSJr1jCITA7HW_8igtXW4N1hEp76E",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:3000/api/classes?page=1",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"api",
+								"classes"
+							],
+							"query": [
+								{
+									"key": "page",
+									"value": "1"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "getOne",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": null
+					},
+					"response": []
+				},
+				{
+					"name": "newClass",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjYxZTczYzVhNTE1NDRhNWQ3YjJmNzk1YyIsImlhdCI6MTY0MjU1NTcyNCwiZXhwIjoxNjQyNjQyMTI0fQ.t_-Mx-zOwMusCNkSJr1jCITA7HW_8igtXW4N1hEp76E",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n\t\"name\": \"aula de artes\",\n\t\"description\": \"aula com o prof jose\",\n\t\"video\": \"meet.google.com\",\n\t\"date_init\": \"2022-01-18T22:16:58.030+00:00\",\n\t\"date_end\": \"2022-01-18T22:16:58.030+00:00\"\n}"
+						},
+						"url": {
+							"raw": "http://localhost:3000/api/classes",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"api",
+								"classes"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "editClass",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjYxZTczYzVhNTE1NDRhNWQ3YjJmNzk1YyIsImlhdCI6MTY0MjU1NTcyNCwiZXhwIjoxNjQyNjQyMTI0fQ.t_-Mx-zOwMusCNkSJr1jCITA7HW_8igtXW4N1hEp76E",
+									"type": "string"
+								}
+							]
+						},
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n\t\"name\": \"aula de finanças\",\n\t\"description\": \"aula com o prof fabio\",\n\t\"video\": \"meet.google.com\",\n\t\"date_init\": \"2022-01-18T22:16:58.030+00:00\",\n\t\"date_end\": \"2022-01-18T22:16:58.030+00:00\"\n}"
+						},
+						"url": {
+							"raw": "http://localhost:3000/api/classes/61e754fa445f91b9bca99817",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"api",
+								"classes",
+								"61e754fa445f91b9bca99817"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "removeClass",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjYxZTczYzVhNTE1NDRhNWQ3YjJmNzk1YyIsImlhdCI6MTY0MjU1NTcyNCwiZXhwIjoxNjQyNjQyMTI0fQ.t_-Mx-zOwMusCNkSJr1jCITA7HW_8igtXW4N1hEp76E",
+									"type": "string"
+								}
+							]
+						},
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:3000/api/classes/61e79176cd4a1ed576e6a664",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"api",
+								"classes",
+								"61e79176cd4a1ed576e6a664"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "user",
+			"item": [
+				{
+					"name": "newUser",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n\t\"name\": \"leonardo111\",\n\t\"email\": \"leo@gm233ail.com\",\n\t\"password\": \"123\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:3000/api/signup",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"api",
+								"signup"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "authenticate",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n\t\"email\": \"leo@gmail.com2\",\n\t\"password\": \"12345\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:3000/api/login",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"api",
+								"login"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "comments",
+			"item": [
+				{
+					"name": "getAllFromClass",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjYxZTczYzVhNTE1NDRhNWQ3YjJmNzk1YyIsImlhdCI6MTY0MjU5OTM2OSwiZXhwIjoxNjQyNjg1NzY5fQ.avVbMlAwZ4OzCdqkZUGGHbnovT-3w4tZ2bHoNA8SbHo",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:3000/api/classes/61e791d0cd4a1ed576e6a68d/comments",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"api",
+								"classes",
+								"61e791d0cd4a1ed576e6a68d",
+								"comments"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "newComment",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:3000/api/classes/61e79176cd4a1ed576e6a664/comments",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"api",
+								"classes",
+								"61e79176cd4a1ed576e6a664",
+								"comments"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "removeFromClass",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjYxZTczYzVhNTE1NDRhNWQ3YjJmNzk1YyIsImlhdCI6MTY0MjU5OTM2OSwiZXhwIjoxNjQyNjg1NzY5fQ.avVbMlAwZ4OzCdqkZUGGHbnovT-3w4tZ2bHoNA8SbHo",
+									"type": "string"
+								}
+							]
+						},
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:3000/api/classes/61e79176cd4a1ed576e6a664/comment/61e79188cd4a1ed576e6a669",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"api",
+								"classes",
+								"61e79176cd4a1ed576e6a664",
+								"comment",
+								"61e79188cd4a1ed576e6a669"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		}
+	],
+	"auth": {
+		"type": "bearer",
+		"bearer": [
+			{
+				"key": "token",
+				"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjYxZTczYzVhNTE1NDRhNWQ3YjJmNzk1YyIsImlhdCI6MTY0MjU1NTcyNCwiZXhwIjoxNjQyNjQyMTI0fQ.t_-Mx-zOwMusCNkSJr1jCITA7HW_8igtXW4N1hEp76E",
+				"type": "string"
+			}
+		]
+	},
+	"event": [
+		{
+			"listen": "prerequest",
+			"script": {
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		},
+		{
+			"listen": "test",
+			"script": {
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		}
+	]
+}
