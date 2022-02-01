@@ -68,5 +68,5 @@ Para Hospedar a aplicação e colocá-la em produção, poderia ser utilizado o 
 | DELETE     | `/api/classes` | <div align="center">❌</div> | `:id`                      | 200 | Rota de remoção de uma classe e seus respectivos comentários     |
 | PUT      | `/api/classes` | Objeto do tipo classe | `:id` | 200 | Rota para alteração de um atributo da aula |
 | GET | `/api/classes/:id_class/comments` | <div align="center">❌</div> | `:id_class`  |`array` | Rota de listagem de comentários de uma aula |
-| POST | `/api/classes/:id_class/comments` | Objeto do tipo comment | `:id_class` | <div align="center">❌</div> | Rota de criação de um comentário novo comentário |
+| POST | `/api/classes/:id_class/comments` | Objeto do tipo comment | `:id_class` | 200 | Rota de criação de um comentário novo comentário |
  DELETE | `/api/classes/:id_class/comment/:id` | <div align="center">❌</div> |  `:id_class` e `: id` | 200 | Rota de remoção de um comentário de uma aula |
